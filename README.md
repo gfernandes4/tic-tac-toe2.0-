@@ -1,6 +1,6 @@
 # jogo_da_velha_2
 
-A new Flutter project.
+Um projeto feito com Flutter
 
 ## Getting Started
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe/model/player.dart';
-import '../model/player.dart';
 import '../model/game_board.dart';
 
 class GameProvider with ChangeNotifier {

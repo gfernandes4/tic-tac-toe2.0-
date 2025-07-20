@@ -10,6 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^6.0.0
+  flutter_animate: ^4.5.2
+  audioplayers: ^6.5.0
 
 dev_dependencies:
   flutter_test:
@@ -18,3 +20,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/sounds/move.mp3
+    - assets/sounds/win_subboard.mp3
+    - assets/sounds/win_game.mp3
+    - assets/sounds/draw.mp3

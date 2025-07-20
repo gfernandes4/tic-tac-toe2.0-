@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import '../providers/game_provider.dart';
+import '../theme.dart';
+import '../widgets/custom_button.dart';
 import 'game_screen.dart';
 
 class ResultScreen extends StatelessWidget {
@@ -24,10 +27,11 @@ class ResultScreen extends StatelessWidget {
                   : winner == 'Empate'
                       ? 'Empate!'
                       : '$winner Venceu!',
-              style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-            ),
+              style: Theme.of(context).textTheme.headlineSmall,
+            ).animate().fadeIn(duration: AppTheme.animationDuration).scale(),
             const SizedBox(height: 20),
-            ElevatedButton(
+            CustomButton(
+              text: 'Novo Jogo',
               onPressed: () {
                 context.read<GameProvider>().resetGame();
                 Navigator.pushReplacement(
@@ -35,17 +39,16 @@ class ResultScreen extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const GameScreen()),
                 );
               },
-              child: const Text('Novo Jogo'),
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
+            CustomButton(
+              text: 'Voltar ao Menu',
               onPressed: () {
                 Navigator.popUntil(context, (route) => route.isFirst);
               },
-              child: const Text('Voltar ao Menu'),
             ),
           ],
-        ),
+        ).animate().fadeIn(duration: AppTheme.animationDuration * 1.5),
       ),
     );
   }

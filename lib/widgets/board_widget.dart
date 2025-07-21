@@ -32,7 +32,9 @@ class BoardWidget extends StatelessWidget {
         final availableWidth = constraints.maxWidth;
         final availableHeight = constraints.maxHeight;
         final size = isTablet
-            ? (availableWidth > maxSize ? maxSize : availableWidth * 0.9)
+            ? (availableWidth > availableHeight
+                ? availableWidth * 0.9
+                : availableHeight)
             : (availableWidth < availableHeight
                 ? availableWidth
                 : availableHeight).clamp(0.0, maxSize);
@@ -41,12 +43,12 @@ class BoardWidget extends StatelessWidget {
           child: Container(
             width: size,
             height: size,
-            margin: EdgeInsets.all(size * (isTablet ? 0.02 : 0.05)), // Margem menor em tablets
+            margin: EdgeInsets.all(size * (isTablet ? 0.02 : 0.05)),
             child: GridView.builder(
-              physics: const NeverScrollableScrollPhysics(), // Desativa o scroll
+              physics: const NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
-                crossAxisSpacing: isTablet ? 12.0 : 8.0, // Espaçamento maior em tablets
+                crossAxisSpacing: isTablet ? 12.0 : 8.0,
                 mainAxisSpacing: isTablet ? 12.0 : 8.0,
               ),
               itemCount: 9,

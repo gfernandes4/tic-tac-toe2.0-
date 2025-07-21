@@ -24,6 +24,12 @@ class SoundManager with ChangeNotifier {
     }
   }
 
+  Future<void> playBackgroundSound() async {
+    if (_isSoundEnabled) {
+      await _audioPlayer.play(AssetSource('sounds/backgroundSound.mp3'));
+    }
+  }
+
   Future<void> playGameEnd(String? winner) async {
     if (_isSoundEnabled) {
       if (winner == 'Empate') {

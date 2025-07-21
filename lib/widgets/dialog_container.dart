@@ -22,34 +22,36 @@ class DialogContainer extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: ConstrainedBox(
         constraints: BoxConstraints(
-          maxWidth: MediaQuery.of(context).size.width * 0.8, // 80% da largura
-          maxHeight: MediaQuery.of(context).size.height * 0.7, // 70% da altura
+          maxWidth: MediaQuery.of(context).size.width * 0.8,
+          maxHeight: MediaQuery.of(context).size.height * 0.7,
         ),
         child: Container(
           padding: const EdgeInsets.all(16.0),
           child: LayoutBuilder(
             builder: (context, constraints) {
-              return Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Text(
-                    'Matriz ${mainRow + 1}x${mainCol + 1}',
-                    style: Theme.of(context).textTheme.headlineSmall,
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 16),
-                  SizedBox(
-                    width: constraints.maxWidth,
-                    height: constraints.maxWidth, // Mantém proporção 1:1
-                    child: CellWidget(mainRow: mainRow, mainCol: mainCol),
-                  ),
-                  const SizedBox(height: 16),
-                  CustomButton(
-                    text: 'Fechar',
-                    onPressed: onClose,
-                  ),
-                ],
+              return SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      'Matriz ${mainRow + 1}x${mainCol + 1}',
+                      style: Theme.of(context).textTheme.headlineSmall,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 16),
+                    SizedBox(
+                      width: constraints.maxWidth,
+                      height: constraints.maxHeight * 0.7, // Limita a altura
+                      child: CellWidget(mainRow: mainRow, mainCol: mainCol),
+                    ),
+                    const SizedBox(height: 16),
+                    CustomButton(
+                      text: 'Fechar',
+                      onPressed: onClose,
+                    ),
+                  ],
+                ),
               );
             },
           ),

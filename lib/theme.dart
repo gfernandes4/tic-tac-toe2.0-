@@ -16,6 +16,9 @@ class AppTheme {
         surface: Colors.blue[400]!,
         onSurface: Colors.black87,
         brightness: Brightness.light,
+
+        onSecondary: Colors.white,
+
       ),
       cardColor: Colors.grey[50],
       scaffoldBackgroundColor: Colors.grey[50],
@@ -52,6 +55,8 @@ class AppTheme {
         surface: Colors.blue[800]!,
         onSurface: Colors.white,
         brightness: Brightness.dark,
+        //alterar o title do app para branco
+        onSecondary: Colors.white,
       ),
       cardColor: Colors.grey[800],
       scaffoldBackgroundColor: Colors.grey[900],

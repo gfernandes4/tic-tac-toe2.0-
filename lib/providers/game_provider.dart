@@ -327,5 +327,6 @@ class AIPlayer {
     if (playerCount == 2 && emptyCount == 1) return 20;
     if (playerCount == 1 && emptyCount == 2) return 5;
     return 0;
+    
   }
 }
